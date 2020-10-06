@@ -10,37 +10,37 @@ class square {
         
         // Периметр
         int p;
-        int calc_p() {
-            return p = a * 4;
+        void calc_p() {
+            this->p = this->a * 4;
         }
         
         // Площадь
         int s;
-        int calc_s() {
-            return p = a * a;
+        void calc_s() {
+            this->s = this->a * this->a;
         }
         
         // Диагональ
         double d;
-        double calc_d() {
-            return d = sqrt(2) * a;
+        void calc_d() {
+            this->d = sqrt(2) * this->a;
         }
     
     public:
 
         // Конструктор по умолчанию
         square() {
-            set_a(1);
+           this->set_a(1);
         }
         
         // Конструктор с параметрами
         square(int side) {
-            set_a(side);
+            this->set_a(side);
         }
         
         // Конструктор копирования
         square(const square& obj) {
-        // set_a(obj.get_a());
+            this->set_a(obj.get_a());
         }
     
         // Метод изменения стороны a
@@ -64,32 +64,65 @@ class square {
         }
         
         // Доступ к сторонре
-        int get_a() {
-            return a;
+        int get_a() const {
+            return this->a;
         }
         
         // Доступ к периметру
-        int get_p() {
-            return p;
+        int get_p() const {
+            return this->p;
         }
         
         // Доступ к площади
-        int get_s() {
-            return s;
+        int get_s() const {
+            return this->s;
         }
         
         // Доступ к диагонали
-        int get_d() {
-            return d;
+        double get_d() const {
+            return this->d;
         }
     
         // Деструктор
-        ~square();
+        ~square() {
+            cout << "Запущен деструктор" << endl;
+        }
 };
 
 int main() {
+    // Проверяем конструктор по умолчанию
+    square s0;
+    cout << "Конструктор по умоляанию, стороона получилась: " << s0.get_a() << endl;
+    
+    // Проверяем свой конструктор
     square s1(10);
-    cout << s1.get_a() << endl;
+    cout << "В конструктор было передано значение 10, сторона получилась: " << s1.get_a() << endl;
+    
+    // Проверяем конструктор копирования
+    square s2(s1);
+    cout << "Конструктор копирования, стороона получилась: " << s2.get_a() << endl;
+    
+    cout << "\nИтого:\n";
+    
+    // Проверяем периметр, площадь, диагональ
+    cout << "Сторона: " << s2.get_a() << endl;
+    cout << "Периметр: " << s2.get_p() << endl;
+    cout << "Площадь: " << s2.get_s() << endl;
+    cout << "Диагональ: " << s2.get_d() << endl;
+    
+    // Меняем сторону
+    cout << "\nПоменли сторону (теперь она 20)\n";
+    s2.set_a(20);
+    
+    cout << "\nИтого:\n";
+    
+    // Проверяем периметр, площадь, диагональ
+    cout << "Сторона: " << s2.get_a() << endl;
+    cout << "Периметр: " << s2.get_p() << endl;
+    cout << "Площадь: " << s2.get_s() << endl;
+    cout << "Диагональ: " << s2.get_d() << endl;
+    
+    cout << "\nБыло создано 3 объекта, должно быть запущено 3 деструктора:\n";
 
     return 0;
 } 
