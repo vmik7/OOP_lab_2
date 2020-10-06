@@ -3,96 +3,93 @@
 using namespace std;
 
 class square {
-	private:
-		
-		// Ñòîðîíà êëàññà
-		int a = 1;
-		
-		// Ïåðèìåòð
-		int p;
-		int calc_p() {
-			return p = a * 4;
-		}
-		
-		// Ïëîùàäü
-		int s;
-		int calc_s() {
-			return p = a * a;
-		}
-		
-		// Äèàãîíàëü
-		double d;
-		double calc_d() {
-			return d = sqrt(2) * a;
-		}
-		
-	public:
-		
-		// Êîíñòðóêòîð ïî óìîë÷àíèþ
-		square() {
-			set_a(1);
-		}
-		
-		// Êîíñòðóêòîð ñ ïàðàìåòðàìè
-		square(int side) {
-			set_a(side);
-		}
-		
-		// Êîíñòðóêòîð êîïèðîâàíèÿ
-		square(const square& obj) {
-			// set_a(obj.get_a());
-		}
-		
-		
-		// Ìåòîä èçìåíåíèÿ ñòîðîíû a
-		void set_a(int val) {
-			
-			// Ïðîâåðêà íà âàëèäíîñòü
-			if (val <= 0) {
-				cout << "Îøèáêà! Óñòàíàâëèâàþ ñòîðîíó ðàâíîé 1" << endl;
-				val = 1;
-			}
-			
-			// Óñòàíàâëèâàåì ñòîðîíó a = val
-			this->a = val;
-			
-			// Ïåðåñ÷èòûâàåì îñòàëüíûå ïàðàìåòðû
-			this->calc_p();
-			this->calc_s();
-			this->calc_d();
-			
-			return;
-		}
-		
-		// Äîñòóï ê ñòîðîíðå
-		int get_a() {
-			return a;
-		}
-		
-		// Äîñòóï ê ïåðèìåòðó
-		int get_p() {
-			return p;
-		}
-		
-		// Äîñòóï ê ïëîùàäè
-		int get_s() {
-			return s;
-		}
-		
-		// Äîñòóï ê äèàãîíàëè
-		int get_d() {
-			return d;
-		}
-		
-		// Äåñòðóêòîð
-		~square();
+    private:
+    
+        // Сторона класса
+        int a = 1;
+        
+        // Периметр
+        int p;
+        int calc_p() {
+            return p = a * 4;
+        }
+        
+        // Площадь
+        int s;
+        int calc_s() {
+            return p = a * a;
+        }
+        
+        // Диагональ
+        double d;
+        double calc_d() {
+            return d = sqrt(2) * a;
+        }
+    
+    public:
+
+        // Конструктор по умолчанию
+        square() {
+            set_a(1);
+        }
+        
+        // Конструктор с параметрами
+        square(int side) {
+            set_a(side);
+        }
+        
+        // Конструктор копирования
+        square(const square& obj) {
+        // set_a(obj.get_a());
+        }
+    
+        // Метод изменения стороны a
+        void set_a(int val) {
+        
+            // Проверка на валидность
+            if (val <= 0) {
+                cout << "Ошибка! Устанавливаю сторону равной 1" << endl;
+                val = 1;
+            }
+            
+            // Устанавливаем сторону a = val
+            this->a = val;
+            
+            // Пересчитываем остальные параметры
+            this->calc_p();
+            this->calc_s();
+            this->calc_d();
+            
+            return;
+        }
+        
+        // Доступ к сторонре
+        int get_a() {
+            return a;
+        }
+        
+        // Доступ к периметру
+        int get_p() {
+            return p;
+        }
+        
+        // Доступ к площади
+        int get_s() {
+            return s;
+        }
+        
+        // Доступ к диагонали
+        int get_d() {
+            return d;
+        }
+    
+        // Деструктор
+        ~square();
 };
 
 int main() {
-	square s1(10);
-	cout << s1.get_a() << endl;
-	
-	
+    square s1(10);
+    cout << s1.get_a() << endl;
 
-	return 0;
-}
+    return 0;
+} 
